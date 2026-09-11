@@ -37,7 +37,7 @@ function mostrarEstudiantes(lista = estudiantes) {
     <button onclick="editarEstudiante(${estudiante.id})">Editar</button>
     <button onclick="eliminarEstudiante(${estudiante.id})">Eliminar</button>
 </td>
-                <td>Acciones</td>
+            
             </tr>
         `;
     });
