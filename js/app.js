@@ -2,5 +2,11 @@ const formulario = document.querySelector("#formEstudiante");
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault();
+    const nombre = document.querySelector("#nombre").value;
+    const correo = document.querySelector("#correo").value;
+    const programa = document.querySelector("#programa").value;
     console.log("Formulario enviado");
 });
+
+
+
