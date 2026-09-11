@@ -1,4 +1,5 @@
 let estudiantes = [];
+let estudianteEditando = null;
 
 const formulario = document.querySelector("#formEstudiante");
 
@@ -13,6 +14,29 @@ formulario.addEventListener("submit", function(event) {
     correo,
     programa
 };
+if (estudianteEditando === null) {
+
+    const estudiante = {
+        id: Date.now(),
+        nombre,
+        correo,
+        programa
+    };
+
+    estudiantes.push(estudiante);
+
+} else {
+
+    const estudiante = estudiantes.find(
+        estudiante => estudiante.id === estudianteEditando
+    );
+
+    estudiante.nombre = nombre;
+    estudiante.correo = correo;
+    estudiante.programa = programa;
+
+    estudianteEditando = null;
+}
     estudiantes.push(estudiante);
     mostrarEstudiantes();
 formulario.reset();
@@ -50,6 +74,19 @@ function eliminarEstudiante(id) {
     );
 
     mostrarEstudiantes();
+}
+
+function editarEstudiante(id) {
+
+    const estudiante = estudiantes.find(
+        estudiante => estudiante.id === id
+    );
+
+    document.querySelector("#nombre").value = estudiante.nombre;
+    document.querySelector("#correo").value = estudiante.correo;
+    document.querySelector("#programa").value = estudiante.programa;
+
+    estudianteEditando = id;
 }
 
 mostrarEstudiantes();
