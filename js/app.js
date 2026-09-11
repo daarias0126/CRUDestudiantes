@@ -12,8 +12,28 @@ formulario.addEventListener("submit", function(event) {
     correo,
     programa
 };
+    estudiantes.push(estudiante);
     console.log("Formulario enviado");
 });
+
+function mostrarEstudiantes(lista = estudiantes) {
+
+    const tabla = document.querySelector("#tablaEstudiantes");
+
+    tabla.innerHTML = "";
+
+    lista.forEach(estudiante => {
+
+        tabla.innerHTML += `
+            <tr>
+                <td>${estudiante.nombre}</td>
+                <td>${estudiante.correo}</td>
+                <td>${estudiante.programa}</td>
+                <td>Acciones</td>
+            </tr>
+        `;
+    });
+}
 
 
 
